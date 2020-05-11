@@ -1,0 +1,46 @@
+// xxs 0 - 479
+// xs 480 - 767
+// sm 768 - 991
+// md 992 - 1199
+// lg 1200+
+// [-]及以下, [+]及以上
+$breakpoints: (
+        'xxs': 'only screen and (max-width: 479px)', // 479以下
+        'xxs+': 'only screen and (min-width: 0px)', // 0以上
+        'xs': 'only screen and (min-width: 480px) and (max-width: 767px)', // 480 - 767
+        'xs+': 'only screen and (min-width: 480px)', // 480以上
+        'xs-': 'only screen and (max-width: 767px)', // 767以下
+        'sm': 'only screen and (min-width: 768px) and (max-width: 991px)', // 768 - 991
+        'sm+': 'only screen and (min-width: 768px)', // 768以上
+        'sm-': 'only screen and (max-width: 991px)', // 991 以下
+        'md': 'only screen and (min-width: 992px) and (max-width: 1199px)', // 992 - 1199
+        'md+': 'only screen and (min-width: 992px)', // 992以上
+        'md-': 'only screen and (max-width: 1199px)', // 1199以下
+        'lg': 'only screen and (min-width: 1200px)', // 1200以上
+        'lg+': 'only screen and (min-width: 1200px)', // 1200以上
+) !default;
+
+@mixin screen-respond-to($breakpoint) {
+  $query: map_get($breakpoints, $breakpoint);
+
+  @if not $query {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+  }
+
+  @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+
+//// 使用
+//.element {
+//  @include screen-respond-to(sm) {
+//    color: tomato;
+//  }
+//}
+//// 产出
+//@media (min-width: 768px) {
+//  .element {
+//    color: tomato;
+//  }
+//}

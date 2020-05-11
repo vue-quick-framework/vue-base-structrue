@@ -8,6 +8,8 @@ import api from './utils/api'
 import directives from './utils/directives'
 import filters from './utils/filters'
 
+import './assets/stylesheets/application.scss'
+
 Vue.config.productionTip = false
 
 Vue.use(api)
