@@ -19,7 +19,14 @@ module.exports = {
       postcss: {
         plugins: [
           require('postcss-pxtorem')({
-            rootValue: 37.5, // 效果图375
+            // rootValue: 37.5, // 效果图375
+            rootValue: (input) => {
+              // eslint-disable-next-line no-useless-escape
+              if (/@media\sonly\sscreen\sand\s\(min\-width:\s1024px\)/i.test(input && input.css)) {
+                return 144
+              }
+              return 37.5
+            },
             propList: ['*'], // 属性的选择器，*表示通用
             selectorBlackList: ['.px-'] //   忽略的选择器   .ig-  表示 .ig- 开头的都不会转换
             // exclude: /node_modules/i

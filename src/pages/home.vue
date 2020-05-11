@@ -16,3 +16,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  // hello
+  @include desktop-device {
+    img {
+      width: 500px;
+    }
+  }
+  img {
+    width: 50px;
+  }
+</style>
