@@ -14,12 +14,22 @@ module.exports = {
   // },
   chainWebpack: config => {
     config.resolve.alias.set('@pages', resolve('src/pages'))
+    // eg: 更改编译忽略某些svg文件的加载
+    // config.module.rule('svg').exclude.add(resolve('src/icons')).end()
     // 如果使用多页面打包，使用vue inspect --plugins查看html是否在结果数组中
     config.plugin('html').tap(args => {
       args[0].title = '前后端分离'
       return args
     })
   },
+  // configureWebpack: config => {
+  //   config.module.rules.push({
+  //     test: /.md$/,
+  //     use: [{
+  //       loader: 'text-loader'
+  //     }]
+  //   })
+  // },
   css: {
     loaderOptions: {
       // pass options to sass-loader
