@@ -1,7 +1,19 @@
+const path = require('path')
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 module.exports = {
-  productionSourceMap: false,
   // transpileDependencies: [/zzp-ui/],
+  productionSourceMap: false,
+  // publicPath: process.env.NODE_ENV !== 'development' ? './' : '/',
+  // outputDir: 'dist',
+  // devServer: {
+  //   host: '0.0.0.0',
+  //   port: '8080',
+  //   disableHostCheck: true // 解决127.0.0.1指向其他域名时出现"Invalid Host header"问题
+  // },
   chainWebpack: config => {
+    config.resolve.alias.set('@pages', resolve('src/pages'))
     // 如果使用多页面打包，使用vue inspect --plugins查看html是否在结果数组中
     config.plugin('html').tap(args => {
       args[0].title = '前后端分离'
