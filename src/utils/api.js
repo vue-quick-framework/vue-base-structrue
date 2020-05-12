@@ -8,8 +8,9 @@ const cusAxios = axios.create({
 })
 
 // 设置post请求头
-axios.defaults.headers.post['Content-Type'] = 'application/json'
-// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+// axios.defaults.headers.post['Content-Type'] = 'application/json'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+// axios.defaults.withCredentials = true
 
 // 请求拦截
 cusAxios.interceptors.request.use(function (config) {
