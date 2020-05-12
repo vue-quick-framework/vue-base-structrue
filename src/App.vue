@@ -8,6 +8,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted () {
+    this.axios.get('/api/index').then(res => {
+      console.log('mock', res.data)
+    })
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

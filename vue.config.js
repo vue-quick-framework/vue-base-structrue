@@ -7,10 +7,30 @@ module.exports = {
   productionSourceMap: false,
   // publicPath: process.env.NODE_ENV !== 'development' ? './' : '/',
   // outputDir: 'dist',
-  // devServer: {
-  //   host: '0.0.0.0',
-  //   port: '8080',
-  //   disableHostCheck: true // 解决127.0.0.1指向其他域名时出现"Invalid Host header"问题
+  devServer: {
+    open: true,
+    host: '0.0.0.0',
+    port: '8080',
+    disableHostCheck: true, // 解决127.0.0.1指向其他域名时出现"Invalid Host header"问题
+    proxy: {
+      '/api': {
+        target: '<url>',
+        changOrigin: true // 配置跨域
+        // ws: true, // 配置ws跨域
+        // secure: false, // https协议才设置
+      }
+    },
+    before: app => {
+      require('./mock')(app)
+    }
+  },
+  // 自定义入口和模板
+  // pages: {
+  //   index: {
+  //     entry: 'src/main.js',
+  //     template: 'public/index.html',
+  //     filename: 'index.html'
+  //   }
   // },
   chainWebpack: config => {
     config.resolve.alias.set('@pages', resolve('src/pages'))
