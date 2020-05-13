@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "babel-node es6.js build",
+    "build:default": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -19,6 +20,10 @@
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/register": "^7.9.0",
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-eslint": "~4.3.0",
     "@vue/cli-plugin-pwa": "~4.3.0",
@@ -36,6 +41,8 @@
     "node-sass": "^4.12.0",
     "postcss-pxtorem": "^5.1.1",
     "sass-loader": "^8.0.2",
+    "text-encoder": "^0.0.4",
+    "util.promisify": "^1.0.1",
     "vue-template-compiler": "^2.6.11"
   }
 }
