@@ -10,6 +10,9 @@ import filters from './utils/filters'
 
 import './assets/stylesheets/application.scss'
 
+import i18n from './i18n'
+console.log(i18n.t('hello'))
+
 Vue.config.productionTip = false
 
 Vue.use(api)
@@ -19,5 +22,6 @@ Vue.use(filters)
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')

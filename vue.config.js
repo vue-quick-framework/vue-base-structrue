@@ -5,6 +5,7 @@ function resolve (dir) {
 module.exports = {
   // transpileDependencies: [/zzp-ui/],
   productionSourceMap: false,
+
   // publicPath: process.env.NODE_ENV !== 'development' ? './' : '/',
   // outputDir: 'dist',
   devServer: {
@@ -24,6 +25,7 @@ module.exports = {
       require('./mock')(app)
     }
   },
+
   // 自定义入口和模板
   // pages: {
   //   index: {
@@ -42,6 +44,7 @@ module.exports = {
       return args
     })
   },
+
   // configureWebpack: config => {
   //   config.module.rules.push({
   //     test: /.md$/,
@@ -77,6 +80,15 @@ module.exports = {
         /* You can extend webpack config here */
         extend (config, ctx) {}
       }
+    }
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: true
     }
   }
 }
