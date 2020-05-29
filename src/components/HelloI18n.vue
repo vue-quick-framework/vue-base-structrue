@@ -1,5 +1,5 @@
 <template>
-  <p>{{ $t('hello') }}</p>
+  <p><span>{{ $t('hello') }}</span></p>
 </template>
 
 <script>
@@ -15,3 +15,11 @@ export default {
   <!--}-->
 <!--}-->
 <!--</i18n>-->
+
+<style lang="scss" scoped>
+  p {
+    > span {
+      color: green;
+    }
+  }
+</style>

@@ -2,12 +2,14 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloI18n/>
+    <SvgIcon icon="search"></SvgIcon>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloI18n from '@/components/HelloI18n.vue'
+import '@/components/shared/SvgIcon'
 
 export default {
   name: 'Home',
