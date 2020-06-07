@@ -17,4 +17,6 @@ export default function (file, config) {
 }
 
 // usage
+// const formData = new FormData()
 // let compressedFile = await compressImage(file)
+// formData.append('attach', compressedFile, compressedFile.name)
