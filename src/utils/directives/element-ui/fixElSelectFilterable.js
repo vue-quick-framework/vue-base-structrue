@@ -6,7 +6,8 @@ export default {
     if (input && isMobile()) {
       input.removeAttribute('readonly')
       input.oninput = function (event) {
-        binding.value && vnode.context.$refs[binding.value] && vnode.context.$refs[binding.value].debouncedQueryChange(event)
+        // binding.value && vnode.context.$refs[binding.value] && vnode.context.$refs[binding.value].debouncedQueryChange(event)
+        binding.value && vnode.context.$refs[binding.value] && vnode.context.$refs[binding.value].debouncedOnInputChange(event)
       }
       // input.onblur = () => { // 此方法性能 比 MutationObserver 高
       //   // 至少要超过200ms, 源码200ms后添加readonly
