@@ -11,6 +11,7 @@ const api = {
 export default {
   install (Vue) {
     Vue.prototype.api = api
+    Vue.prototype.cusAxios = cusAxios
     Vue.prototype.axios = axios
   }
 }
