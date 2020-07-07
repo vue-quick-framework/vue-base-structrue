@@ -1,5 +1,5 @@
 import cusAxios from './axios'
-// import axios from 'axios'
+import axios from 'axios'
 
 const api = {
   // 登录
@@ -11,6 +11,6 @@ const api = {
 export default {
   install (Vue) {
     Vue.prototype.api = api
-    // Vue.prototype.axios = axios
+    Vue.prototype.axios = axios
   }
 }
